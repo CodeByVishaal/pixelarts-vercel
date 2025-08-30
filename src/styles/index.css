@@ -1,0 +1,194 @@
+@import './tailwind.css';
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&display=swap');
+
+/* Enhanced Theme Configuration with Purple, Red, and Black */
+/* Add this to your global CSS or Tailwind config */
+
+:root {
+  /* Primary Colors - Purple Shades */
+  --color-primary-50: #faf7ff;
+  --color-primary-100: #f3ebff;
+  --color-primary-200: #e9d5ff;
+  --color-primary-300: #d8b4fe;
+  --color-primary-400: #c084fc;
+  --color-primary-500: #a855f7;
+  --color-primary-600: #9333ea;
+  --color-primary-700: #7c3aed;
+  --color-primary-800: #6b21a8;
+  --color-primary-900: #581c87;
+
+  /* Secondary Colors - Red Shades */
+  --color-secondary-50: #fef2f2;
+  --color-secondary-100: #fee2e2;
+  --color-secondary-200: #fecaca;
+  --color-secondary-300: #fca5a5;
+  --color-secondary-400: #f87171;
+  --color-secondary-500: #ef4444;
+  --color-secondary-600: #dc2626;
+  --color-secondary-700: #b91c1c;
+  --color-secondary-800: #991b1b;
+  --color-secondary-900: #7f1d1d;
+
+  /* Neutral Colors - Black/Gray Shades */
+  --color-neutral-50: #f8fafc;
+  --color-neutral-100: #f1f5f9;
+  --color-neutral-200: #e2e8f0;
+  --color-neutral-300: #cbd5e1;
+  --color-neutral-400: #94a3b8;
+  --color-neutral-500: #64748b;
+  --color-neutral-600: #475569;
+  --color-neutral-700: #334155;
+  --color-neutral-800: #1e293b;
+  --color-neutral-900: #0f172a;
+
+  /* Global Theme Variables */
+  --global-bg-1: #0a0a0a;           /* Deep black background */
+  --global-bg-2: #1a1625;           /* Dark purple-black */
+  --global-bg-3: #2a1f35;           /* Subtle purple-gray */
+  --global-bg-4: #1e1114;           /* Dark red-black */
+  
+  --global-surface-1: #1f1a2e;      /* Primary surface */
+  --global-surface-2: #2d2440;      /* Secondary surface */
+  --global-surface-3: #3a2f52;      /* Tertiary surface */
+  
+  --global-border-1: #2d1b3d;       /* Subtle purple border */
+  --global-border-2: #3d2a4a;       /* Medium purple border */
+  --global-border-3: #4a3558;       /* Lighter purple border */
+  
+  --global-text-1: #a8a8b3;         /* Primary text */
+  --global-text-2: #c8c8d3;         /* Secondary text */
+  --global-text-3: #e8e8ed;         /* High contrast text */
+  --global-text-4: #ffffff;         /* Pure white text */
+  
+  --global-accent-1: #8b5cf6;       /* Purple accent */
+  --global-accent-2: #ef4444;       /* Red accent */
+  --global-accent-3: #a855f7;       /* Secondary purple */
+  
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, #8b5cf6 0%, #ef4444 100%);
+  --gradient-secondary: linear-gradient(135deg, #1a1625 0%, #2a1f35 100%);
+  --gradient-surface: linear-gradient(180deg, #1f1a2e 0%, #2d2440 100%);
+}
+
+/* Enhanced Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--global-bg-1);
+  color: var(--global-text-1);
+  font-family: 'Sora', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* Custom Tailwind Classes */
+.bg-global-1 { background-color: var(--global-bg-1); }
+.bg-global-2 { background-color: var(--global-bg-2); }
+.bg-global-3 { background-color: var(--global-surface-1); }
+.bg-global-4 { background-color: var(--global-surface-2); }
+
+.border-global-1 { border-color: var(--global-border-1); }
+.border-global-2 { border-color: var(--global-border-2); }
+.border-global-3 { border-color: var(--global-border-3); }
+.border-global-4 { border-color: var(--global-border-2); }
+.border-global-5 { border-color: var(--global-border-3); }
+
+.text-global-text1 { color: var(--global-text-1); }
+.text-global-text2 { color: var(--global-text-2); }
+.text-global-text3 { color: var(--global-text-3); }
+.text-global-text4 { color: var(--global-text-4); }
+
+.text-accent-1 { color: var(--global-accent-1); }
+.text-accent-2 { color: var(--global-accent-2); }
+.text-accent-3 { color: var(--global-accent-3); }
+
+.bg-accent-1 { background-color: var(--global-accent-1); }
+.bg-accent-2 { background-color: var(--global-accent-2); }
+.bg-accent-3 { background-color: var(--global-accent-3); }
+
+.gradient-primary { background: var(--gradient-primary); }
+.gradient-secondary { background: var(--gradient-secondary); }
+.gradient-surface { background: var(--gradient-surface); }
+
+/* Enhanced Shadow Utilities */
+.shadow-purple { box-shadow: 0 4px 20px rgba(139, 92, 246, 0.15); }
+.shadow-red { box-shadow: 0 4px 20px rgba(239, 68, 68, 0.15); }
+.shadow-dark { box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); }
+
+/* Hover Effects */
+.hover-lift {
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.hover-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(139, 92, 246, 0.2);
+}
+
+/* Focus States */
+.focus-purple:focus {
+  outline: none;
+  ring: 2px solid var(--global-accent-1);
+  ring-opacity: 0.5;
+}
+
+/* Container Spacing */
+.container-spacing {
+  padding: 2rem 1rem;
+}
+
+@media (min-width: 640px) {
+  .container-spacing {
+    padding: 3rem 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-spacing {
+    padding: 4rem 3rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container-spacing {
+    padding: 5rem 4rem;
+  }
+}
+
+/* Section Spacing */
+.section-spacing {
+  margin: 3rem 0;
+}
+
+@media (min-width: 640px) {
+  .section-spacing {
+    margin: 4rem 0;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-spacing {
+    margin: 6rem 0;
+  }
+}
+
+/* Component Spacing */
+.component-spacing {
+  margin: 1.5rem 0;
+}
+
+@media (min-width: 640px) {
+  .component-spacing {
+    margin: 2rem 0;
+  }
+}
+
+@media (min-width: 1024px) {
+  .component-spacing {
+    margin: 2.5rem 0;
+  }
+}
