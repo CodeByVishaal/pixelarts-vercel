@@ -49,7 +49,7 @@ const HomePage = () => {
                     <span className="text-global-text4">Crafting</span>
                     <br />
                     <span className="gradient-primary bg-clip-text text-transparent">
-                      Digital
+                      Visual
                     </span>
                     <br />
                     <span className="text-global-text3">Experiences</span>
@@ -58,8 +58,8 @@ const HomePage = () => {
                   </h1>
 
                   <p className="text-lg sm:text-xl lg:text-2xl font-sora font-normal leading-relaxed text-global-text2 max-w-2xl mt-8 lg:mt-12">
-                    We transform your vision into powerful digital solutions
-                    that drive growth and success
+                    We transform your vision into powerful VFX solutions that
+                    drive growth and success
                   </p>
                 </div>
 

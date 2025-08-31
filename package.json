@@ -17,6 +17,7 @@
       "@vitejs/plugin-react",
       "vite",
       "tailwindcss",
+      "tailwindcss-animate",
       "autoprefixer",
       "postcss",
       "eslint",
@@ -49,7 +50,8 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "6.0.2",
-    "recharts": "^2.15.2"
+    "recharts": "^2.15.2",
+    "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
     "@types/react": "^18.2.45",
