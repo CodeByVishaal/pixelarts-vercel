@@ -4,6 +4,8 @@ import Header from "./components/common/Header";
 import hero_video from "./videos/hero-video.mp4";
 import logo from "./images/pixelart-logo.png";
 import { motion } from "framer-motion";
+import Counter from "./components/CounterComponent";
+import Footer from "./components/common/Footer";
 
 // Simulated Routes component (replace with your actual Routes)
 const HomePage = () => {
@@ -13,7 +15,7 @@ const HomePage = () => {
       <Header />
 
       {/* Main Content */}
-      <main className="flex-1 w-full">
+      <main className="flex-1 w-full mb-10">
         {/* Hero Section with Video Background */}
         <section className="relative w-full h-screen overflow-hidden">
           {/* Video Background */}
@@ -126,42 +128,98 @@ const HomePage = () => {
             </motion.div>
           </div>
         </section>
+
+        {/* Pre Highlights Section */}
+        <section className="w-full py-24 px-6 sm:px-8 lg:px-12 xl:px-16 bg-global-1">
+          <div className="max-w-[1200px] mx-auto text-center">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-sora font-bold text-global-text4 mb-12"></h2>
+
+            <div className="space-y-6">
+              {[
+                "Great VFX, Great Value",
+                "But don’t just take our word for it—see what our clients say.",
+              ].map((line, index) => (
+                <motion.p
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{
+                    duration: 1.2,
+                    delay: index * 0.4,
+                    ease: "easeOut",
+                  }}
+                  viewport={{ once: true }}
+                  className="text-xl sm:text-2xl lg:text-3xl font-sora text-accent-1"
+                >
+                  <span className="inline-block animate-gradient-text bg-clip-text text-transparent">
+                    {line}
+                  </span>
+                </motion.p>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Highlights Section */}
+        <section className="w-full py-2 px-6 sm:px-8 lg:px-12 xl:px-16 bg-global-1">
+          <div className="max-w-[1200px] mx-auto text-center space-y-16">
+            {/* Stats Count Section */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
+              {[
+                { label: "Projects Completed", value: 150 },
+                { label: "Happy Clients", value: 80 },
+                { label: "Awards Won", value: 12 },
+              ].map((stat, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 1, delay: index * 0.3 }}
+                  viewport={{ once: true }}
+                  className="bg-global-3 border border-global-2 rounded-3xl p-10 shadow-lg hover:scale-105 transition-transform duration-500"
+                >
+                  <Counter
+                    end={stat.value}
+                    duration={2000}
+                    className="text-4xl sm:text-5xl lg:text-6xl font-bold text-accent-1"
+                  />
+                  <p className="mt-4 text-lg text-global-text2">{stat.label}</p>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Stats Carousel */}
+            {/* <div className="relative w-full overflow-hidden">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1 }}
+                viewport={{ once: true }}
+                className="flex animate-carousel"
+              >
+                {[
+                  "Trusted by top film studios",
+                  "Delivering cinematic excellence",
+                  "Pioneering digital storytelling",
+                  "Crafting immersive VFX experiences",
+                ].map((highlight, index) => (
+                  <div
+                    key={index}
+                    className="min-w-full flex-shrink-0 flex items-center justify-center p-12"
+                  >
+                    <h3 className="text-2xl sm:text-3xl lg:text-4xl font-sora font-semibold text-accent-1">
+                      {highlight}
+                    </h3>
+                  </div>
+                ))}
+              </motion.div>
+            </div> */}
+          </div>
+        </section>
       </main>
 
       {/* Footer */}
-      <footer className="w-full bg-global-1 mt-16 lg:mt-24">
-        <div className="w-full max-w-[1596px] mx-auto px-6 sm:px-8 lg:px-12 xl:px-16">
-          <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center py-12 sm:py-16 lg:py-24 border-b border-global-2 gap-12 lg:gap-16">
-            <div className="w-[45px] h-[35px] sm:w-[65px] sm:h-[50px] lg:w-[84px] lg:h-[64px]">
-              <div className="w-full h-full bg-global-text4 rounded-lg flex items-center justify-center">
-                <span className="text-xl sm:text-2xl lg:text-3xl font-bold gradient-primary bg-clip-text text-transparent">
-                  X
-                </span>
-              </div>
-            </div>
-            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 sm:gap-8 lg:gap-10">
-              <p className="text-base sm:text-lg lg:text-xl font-sora font-medium leading-relaxed text-global-text3">
-                Follow Us On Social Media
-              </p>
-              <div className="flex gap-4 sm:gap-5 lg:gap-6">
-                {["📘", "📷", "🐦"].map((icon, index) => (
-                  <div
-                    key={index}
-                    className="flex justify-center items-center w-14 h-14 sm:w-16 sm:h-16 lg:w-20 lg:h-20 rounded-2xl border border-global-2 bg-global-2 hover:bg-global-3 hover:border-accent-1 transition-all duration-300 cursor-pointer hover:transform hover:scale-110"
-                  >
-                    <span className="text-xl">{icon}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-          <div className="text-center py-8">
-            <p className="text-global-text2">
-              @2023 Digitax. All Rights Reserved.
-            </p>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };
