@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import LoadingAnimation from '../src/components/LoadingAnimation';
-import Header from './components/common/Header';
+import React, { useState, useEffect } from "react";
+import LoadingAnimation from "../src/components/LoadingAnimation";
+import Header from "./components/common/Header";
+import hero_video from "../public/videos/hero-video.mp4";
 
 // Simulated Routes component (replace with your actual Routes)
 const Routes = () => {
@@ -8,34 +9,73 @@ const Routes = () => {
     <div className="min-h-screen bg-global-1 flex flex-col">
       {/* Header */}
       <Header />
-      
 
       {/* Main Content */}
       <main className="flex-1 w-full">
-        <section className="w-full py-16 sm:py-20 lg:py-32 px-6 sm:px-8 lg:px-12 xl:px-16">
-          <div className="max-w-[1596px] mx-auto">
-            <div className="text-center space-y-8 sm:space-y-12 lg:space-y-16">
-              <div className="space-y-6 lg:space-y-8">
-                <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-sora font-bold leading-tight">
-                  <span className="text-global-text4">Digital</span><br/>
-                  <span className="gradient-primary bg-clip-text text-transparent">Solutions</span><br/>
-                  <span className="text-global-text3">That Drive</span><br/>
-                  <span className="text-accent-1">Success</span>
-                </h1>
-                
-                <p className="text-lg sm:text-xl lg:text-2xl font-sora font-normal leading-relaxed text-global-text2 max-w-4xl mx-auto mt-8 lg:mt-12">
-                  Empowering businesses with innovative digital solutions that transform ideas into reality
-                </p>
-              </div>
+        {/* Hero Section with Video Background */}
+        <section className="relative w-full h-screen overflow-hidden">
+          {/* Video Background */}
+          <div className="absolute inset-0 w-full h-full">
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="w-full h-full object-cover"
+            >
+              <source src={hero_video} type="video/mp4" />
+              {/* Fallback gradient background if video fails to load */}
+              <div className="w-full h-full bg-gradient-to-br from-global-1 via-global-2 to-global-3"></div>
+            </video>
 
-              <div className="flex flex-col sm:flex-row gap-6 sm:gap-8 lg:gap-10 justify-center items-center mt-12 lg:mt-16">
-                <button className="px-8 sm:px-10 lg:px-12 py-4 sm:py-5 lg:py-6 bg-accent-1 hover:bg-accent-3 text-global-text4 font-sora font-semibold text-base sm:text-lg lg:text-xl rounded-2xl transition-all duration-300 hover:transform hover:scale-105 shadow-lg hover:shadow-purple">
-                  Get Started
-                </button>
-                <button className="px-8 sm:px-10 lg:px-12 py-4 sm:py-5 lg:py-6 border-2 border-accent-2 hover:bg-accent-2 text-accent-2 hover:text-global-text4 font-sora font-semibold text-base sm:text-lg lg:text-xl rounded-2xl transition-all duration-300 hover:transform hover:scale-105">
-                  Learn More
-                </button>
+            {/* Dark overlay for better text contrast */}
+            <div className="absolute inset-0 bg-black bg-opacity-40"></div>
+
+            {/* Gradient overlay for cinematic effect */}
+            <div className="absolute inset-0 bg-gradient-to-r from-black via-transparent to-transparent opacity-60"></div>
+          </div>
+
+          {/* Hero Content - Left Aligned */}
+          <div className="relative z-10 h-full flex items-center">
+            <div className="max-w-[1596px] mx-auto px-6 sm:px-8 lg:px-12 xl:px-16 w-full">
+              <div className="max-w-3xl">
+                {/* Tagline */}
+                <div className="space-y-6 lg:space-y-8">
+                  <h1 className="text-4xl sm:text-5xl lg:text-5xl xl:text-5xl font-sora font-bold leading-tight text-left">
+                    <span className="text-global-text4">Crafting</span>
+                    <br />
+                    <span className="gradient-primary bg-clip-text text-transparent">
+                      Digital
+                    </span>
+                    <br />
+                    <span className="text-global-text3">Experiences</span>
+                    <br />
+                    <span className="text-accent-1">That Matter</span>
+                  </h1>
+
+                  <p className="text-lg sm:text-xl lg:text-2xl font-sora font-normal leading-relaxed text-global-text2 max-w-2xl mt-8 lg:mt-12">
+                    We transform your vision into powerful digital solutions
+                    that drive growth and success
+                  </p>
+                </div>
+
+                {/* CTA Buttons */}
+                <div className="flex flex-col sm:flex-row gap-3 mt-8">
+                  <button className="px-4 py-2 bg-accent-1 hover:bg-accent-3 text-global-text4 font-sora font-medium text-sm rounded-lg transition-all duration-300">
+                    Get Started
+                  </button>
+                  <button className="px-4 py-2 border border-global-text4 hover:bg-global-text4 text-global-text4 hover:text-global-1 font-sora font-medium text-sm rounded-lg transition-all duration-300">
+                    Contact Us
+                  </button>
+                </div>
               </div>
+            </div>
+          </div>
+
+          {/* Scroll Indicator */}
+          <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <div className="w-6 h-10 border-2 border-global-text4 rounded-full flex justify-center">
+              <div className="w-1 h-3 bg-global-text4 rounded-full mt-2 animate-pulse"></div>
             </div>
           </div>
         </section>
@@ -52,21 +92,24 @@ const Routes = () => {
                 {[
                   {
                     title: "Expert Team",
-                    description: "Skilled professionals with years of experience in digital solutions",
-                    icon: "👥"
+                    description:
+                      "Skilled professionals with years of experience in digital solutions",
+                    icon: "👥",
                   },
                   {
                     title: "Cutting-Edge Technology",
-                    description: "Latest tools and frameworks to build modern, scalable applications",
-                    icon: "🚀"
+                    description:
+                      "Latest tools and frameworks to build modern, scalable applications",
+                    icon: "🚀",
                   },
                   {
                     title: "24/7 Support",
-                    description: "Round-the-clock assistance to ensure your business never stops",
-                    icon: "🛠️"
-                  }
+                    description:
+                      "Round-the-clock assistance to ensure your business never stops",
+                    icon: "🛠️",
+                  },
                 ].map((feature, index) => (
-                  <div 
+                  <div
                     key={index}
                     className="group p-8 lg:p-10 bg-global-3 border border-global-2 rounded-3xl hover:border-accent-1 transition-all duration-300 hover:transform hover:scale-105 hover:shadow-purple"
                   >
@@ -103,8 +146,8 @@ const Routes = () => {
                 Follow Us On Social Media
               </p>
               <div className="flex gap-4 sm:gap-5 lg:gap-6">
-                {['📘', '📷', '🐦'].map((icon, index) => (
-                  <div 
+                {["📘", "📷", "🐦"].map((icon, index) => (
+                  <div
                     key={index}
                     className="flex justify-center items-center w-14 h-14 sm:w-16 sm:h-16 lg:w-20 lg:h-20 rounded-2xl border border-global-2 bg-global-2 hover:bg-global-3 hover:border-accent-1 transition-all duration-300 cursor-pointer hover:transform hover:scale-110"
                   >
@@ -115,7 +158,9 @@ const Routes = () => {
             </div>
           </div>
           <div className="text-center py-8">
-            <p className="text-global-text2">@2023 Digitax. All Rights Reserved.</p>
+            <p className="text-global-text2">
+              @2023 Digitax. All Rights Reserved.
+            </p>
           </div>
         </div>
       </footer>
@@ -146,34 +191,37 @@ function App() {
     };
 
     // Call loading complete after a random time (simulating real loading)
-    const loadingTimeout = setTimeout(() => {
-      handleLoadingComplete();
-    }, Math.random() * 1000 + 1500); // 1.5-2.5 seconds
+    const loadingTimeout = setTimeout(
+      () => {
+        handleLoadingComplete();
+      },
+      Math.random() * 1000 + 1500
+    ); // 1.5-2.5 seconds
 
     return () => clearTimeout(loadingTimeout);
   }, []);
 
   if (isLoading) {
     return (
-      <LoadingAnimation 
+      <LoadingAnimation
         onLoadingComplete={() => {
           setIsLoading(false);
           setTimeout(() => setShowContent(true), 100);
-        }} 
+        }}
       />
     );
   }
 
   return (
-    <div 
+    <div
       className={`transition-all duration-1000 ease-out ${
-        showContent 
-          ? 'opacity-100 transform translate-y-0' 
-          : 'opacity-0 transform translate-y-4'
+        showContent
+          ? "opacity-100 transform translate-y-0"
+          : "opacity-0 transform translate-y-4"
       }`}
     >
       <Routes />
-      
+
       <style jsx global>{`
         :root {
           --global-bg-1: #0a0a0a;
@@ -191,28 +239,67 @@ function App() {
           --gradient-primary: linear-gradient(135deg, #8b5cf6 0%, #ef4444 100%);
         }
 
-        .bg-global-1 { background-color: var(--global-bg-1); }
-        .bg-global-2 { background-color: var(--global-bg-2); }
-        .bg-global-3 { background-color: var(--global-surface-1); }
-        .border-global-2 { border-color: var(--global-border-2); }
-        .text-global-text1 { color: var(--global-text-1); }
-        .text-global-text2 { color: var(--global-text-2); }
-        .text-global-text3 { color: var(--global-text-3); }
-        .text-global-text4 { color: var(--global-text-4); }
-        .text-accent-1 { color: var(--global-accent-1); }
-        .text-accent-2 { color: var(--global-accent-2); }
-        .bg-accent-1 { background-color: var(--global-accent-1); }
-        .bg-accent-2 { background-color: var(--global-accent-2); }
-        .bg-accent-3 { background-color: var(--global-accent-3); }
-        .gradient-primary { background: var(--gradient-primary); }
-        .bg-clip-text { -webkit-background-clip: text; background-clip: text; }
-        
-        .shadow-purple { box-shadow: 0 4px 20px rgba(139, 92, 246, 0.15); }
+        .bg-global-1 {
+          background-color: var(--global-bg-1);
+        }
+        .bg-global-2 {
+          background-color: var(--global-bg-2);
+        }
+        .bg-global-3 {
+          background-color: var(--global-surface-1);
+        }
+        .border-global-2 {
+          border-color: var(--global-border-2);
+        }
+        .text-global-text1 {
+          color: var(--global-text-1);
+        }
+        .text-global-text2 {
+          color: var(--global-text-2);
+        }
+        .text-global-text3 {
+          color: var(--global-text-3);
+        }
+        .text-global-text4 {
+          color: var(--global-text-4);
+        }
+        .text-accent-1 {
+          color: var(--global-accent-1);
+        }
+        .text-accent-2 {
+          color: var(--global-accent-2);
+        }
+        .bg-accent-1 {
+          background-color: var(--global-accent-1);
+        }
+        .bg-accent-2 {
+          background-color: var(--global-accent-2);
+        }
+        .bg-accent-3 {
+          background-color: var(--global-accent-3);
+        }
+        .gradient-primary {
+          background: var(--gradient-primary);
+        }
+        .bg-clip-text {
+          -webkit-background-clip: text;
+          background-clip: text;
+        }
+
+        .shadow-purple {
+          box-shadow: 0 4px 20px rgba(139, 92, 246, 0.15);
+        }
 
         body {
           background-color: var(--global-bg-1);
           color: var(--global-text-1);
-          font-family: 'Sora', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+          font-family:
+            "Sora",
+            -apple-system,
+            BlinkMacSystemFont,
+            "Segoe UI",
+            Roboto,
+            sans-serif;
           margin: 0;
           padding: 0;
         }
