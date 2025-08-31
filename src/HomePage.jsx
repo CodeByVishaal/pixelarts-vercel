@@ -6,6 +6,7 @@ import logo from "./images/pixelart-logo.png";
 import { motion } from "framer-motion";
 import Counter from "./components/CounterComponent";
 import Footer from "./components/common/Footer";
+import ParallaxCards from "./components/Services";
 
 // Simulated Routes component (replace with your actual Routes)
 const HomePage = () => {
@@ -117,9 +118,7 @@ const HomePage = () => {
               </h2>
               <p className="text-base sm:text-lg lg:text-xl text-global-text2 leading-relaxed">
                 At{" "}
-                <span className="text-accent-1 font-semibold">
-                  [Your VFX Company]
-                </span>
+                <span className="text-[#e30513] font-semibold">Pixel Arts</span>
                 , we specialize in transforming imagination into stunning visual
                 experiences. Our team of passionate artists and cutting-edge
                 technology bring cinematic stories to life for film, gaming, and
@@ -161,7 +160,7 @@ const HomePage = () => {
         </section>
 
         {/* Highlights Section */}
-        <section className="w-full py-2 px-6 sm:px-8 lg:px-12 xl:px-16 bg-global-1">
+        <section className="w-full py-2 px-6 sm:px-8 lg:px-12 xl:px-16 bg-global-1 mb-10">
           <div className="max-w-[1200px] mx-auto text-center space-y-16">
             {/* Stats Count Section */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
@@ -181,40 +180,99 @@ const HomePage = () => {
                   <Counter
                     end={stat.value}
                     duration={2000}
-                    className="text-4xl sm:text-5xl lg:text-6xl font-bold text-accent-1"
+                    className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#e30513]"
                   />
-                  <p className="mt-4 text-lg text-global-text2">{stat.label}</p>
+                  <p className="mt-4 text-lg text-accent-1">{stat.label}</p>
                 </motion.div>
               ))}
             </div>
-
-            {/* Stats Carousel */}
-            {/* <div className="relative w-full overflow-hidden">
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1 }}
-                viewport={{ once: true }}
-                className="flex animate-carousel"
-              >
-                {[
-                  "Trusted by top film studios",
-                  "Delivering cinematic excellence",
-                  "Pioneering digital storytelling",
-                  "Crafting immersive VFX experiences",
-                ].map((highlight, index) => (
-                  <div
-                    key={index}
-                    className="min-w-full flex-shrink-0 flex items-center justify-center p-12"
-                  >
-                    <h3 className="text-2xl sm:text-3xl lg:text-4xl font-sora font-semibold text-accent-1">
-                      {highlight}
-                    </h3>
-                  </div>
-                ))}
-              </motion.div>
-            </div> */}
           </div>
+        </section>
+
+        {/* Services Section */}
+        <section className="w-full py-24 bg-global-2">
+          <div className="max-w-[1200px] mx-auto text-center mb-16">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-sora font-bold text-global-text4">
+              Our <span className="text-[#e30513]">Services</span>
+            </h2>
+          </div>
+
+          <ParallaxCards
+            height="100vh"
+            cards={[
+              {
+                lightBg: "bg-global-1",
+
+                content: (
+                  <div>
+                    <h3 className="text-3xl font-bold text-accent-1 mb-4">
+                      VFX Production
+                    </h3>
+                    <p className="text-lg text-global-text2 max-w-xl mx-auto">
+                      High-end VFX for films, ads, and games to bring
+                      imagination to life.
+                    </p>
+                  </div>
+                ),
+              },
+              {
+                lightBg: "bg-global-2",
+                content: (
+                  <div>
+                    <h3 className="text-3xl font-bold text-accent-1 mb-4">
+                      3D Animation
+                    </h3>
+                    <p className="text-lg text-global-text2 max-w-xl mx-auto">
+                      Stunning 3D animation and motion graphics crafted for
+                      cinematic experiences.
+                    </p>
+                  </div>
+                ),
+              },
+              {
+                lightBg: "bg-global-1",
+                content: (
+                  <div>
+                    <h3 className="text-3xl font-bold text-accent-1 mb-4">
+                      Compositing
+                    </h3>
+                    <p className="text-lg text-global-text2 max-w-xl mx-auto">
+                      Seamlessly blending live action with CGI to create
+                      breathtaking visuals.
+                    </p>
+                  </div>
+                ),
+              },
+              {
+                lightBg: "bg-global-2",
+                content: (
+                  <div>
+                    <h3 className="text-3xl font-bold text-accent-1 mb-4">
+                      Virtual Production
+                    </h3>
+                    <p className="text-lg text-global-text2 max-w-xl mx-auto">
+                      Cutting-edge workflows merging real-time 3D environments
+                      with filmmaking.
+                    </p>
+                  </div>
+                ),
+              },
+              {
+                lightBg: "bg-global-1",
+                content: (
+                  <div>
+                    <h3 className="text-3xl font-bold text-accent-1 mb-4">
+                      Post Production
+                    </h3>
+                    <p className="text-lg text-global-text2 max-w-xl mx-auto">
+                      Professional editing, color grading, and finishing to
+                      deliver impact.
+                    </p>
+                  </div>
+                ),
+              },
+            ]}
+          />
         </section>
       </main>
 
