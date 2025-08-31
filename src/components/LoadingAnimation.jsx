@@ -27,7 +27,6 @@ const Loader = () => {
         delay: 0.5,
         ease: "power2.in",
       })
-      // 👇 this fade waits automatically for the stagger to finish
       .to(loader, {
         opacity: 0,
         duration: 0.8,
@@ -64,7 +63,6 @@ const Loader = () => {
           font-size: 6.5rem;
           font-weight: 700;
           position: relative;
-          /* no overflow hidden so last letter drop is visible */
         }
 
         .text span {
@@ -96,6 +94,27 @@ const Loader = () => {
           clip-path: var(--clipPath);
           -webkit-clip-path: var(--clipPath);
           transition: clip-path 0s;
+        }
+
+        /* 📱 Mobile devices */
+        @media (max-width: 480px) {
+          .text {
+            font-size: 2.5rem;
+          }
+        }
+
+        /* 📱 Tablets */
+        @media (min-width: 481px) and (max-width: 768px) {
+          .text {
+            font-size: 4rem;
+          }
+        }
+
+        /* 💻 Small laptops */
+        @media (min-width: 769px) and (max-width: 1024px) {
+          .text {
+            font-size: 5rem;
+          }
         }
       `}</style>
 
